@@ -34,8 +34,8 @@ for c in $contNum; do
 	done
 done	
 
-restartServices=$(sort -u $serviceNames)
+serviceNamesUnique=`sort -n $serviceNames | uniq`
 
-for r in $restartServices; do
-	print $r
+for s in serviceNamesUnique; do
+	printf $s
 done
