@@ -11,7 +11,7 @@ oldAdmin=http://10.109.1.2:35357
 ## Replace the newAdmin endpoint with https + the hostname 
 ## of your current public endpoint in keystone. Remember
 ## to keep :35357 as it is the admin port.
-newAdmin=http://public.fuel.local:35357
+newAdmin=https://public.fuel.local:35357
 
 ## This searches for the ID's of controller nodes.
 contNum=$(fuel node| grep cont | awk '{print $1}'| sort)
