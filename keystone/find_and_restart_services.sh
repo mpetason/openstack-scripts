@@ -42,12 +42,16 @@ for c in $compNum; do
 	done
 done
 
-for s in $serviceNamesComp; do
-	printf $s
-	printf "\n"
-done | sort -u
+printf "Services on the Controller Nodes"
 
-for s in $serviceNamesCont; do
+for s in $serviceNamesCont | sort -u; do
 	printf $s
 	printf "\n"
-done | sort -u
+done 
+
+printf "Services on the Compute Nodes"
+
+for s in $serviceNamesComp| sort -u; do
+	printf $s
+	printf "\n"
+done
