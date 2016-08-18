@@ -32,26 +32,26 @@ for c in $contNum; do
 	printf "Checking on Controller: ${c}\n"
 	for f in ${contFilenames[*]}; do
 		serviceNamesCont+=$(ssh -n -q root@node-$c "ps aux | grep -i " $f| grep -i '/usr/bin/*' | awk '{print $12}')
-	done
+	done | sort -u
 done	
 
 for c in $compNum; do
 	printf "Checking on Computes: ${c}\n"
 	for f in ${contFileNames[*]}; do 
 		serviceNamesComp+=$(ssh -n -q root@node-$c "ps aux | grep -i " $f| grep -i '/usr/bin/*' | awk '{print $12}')
-	done
+	done | sort -u
 done
 
 printf "Services on the Controller Nodes"
 
-for s in $serviceNamesCont | sort -u; do
+for s in $serviceNamesCont; do
 	printf $s
 	printf "\n"
 done 
 
 printf "Services on the Compute Nodes"
 
-for s in $serviceNamesComp| sort -u; do
+for s in $serviceNamesComp; do
 	printf $s
 	printf "\n"
 done
