@@ -51,13 +51,14 @@ for n in $contNum; do
 		ssh -n -q node-$c grep -i $newAdmin $f
 		printf "\n"
 	done
+done
 
 ## Tests for the Old Admin in files on the Computes.
 for h in $compNum; do
 	printf "Working on Compute: ${h}\n"
 	for f in ${compFilenames[*]}; do
 		printf "[OLD]Searching for ${oldAdmin} in ${f}.\n"
-		ssh -n -q node-$c grep -i ${oldAdmin} $f
+		ssh -n -q node-$c grep -i $oldAdmin $f
 		printf "\n"
 	done
 done
@@ -67,7 +68,7 @@ for h in $compNum; do
 	printf "Working on Compute: ${h}\n"
 	for f in ${compFilenames[*]}; do
 		printf "[NEW]Searching for ${newAdmin} in ${f}.\n"
-		ssh -n -q node-$c grep -i ${newAdmin} $f
+		ssh -n -q node-$c grep -i $newAdmin $f
 		printf "\n"
 	done
 done
