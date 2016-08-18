@@ -34,11 +34,12 @@ compFilenames=(
 	)
 
 for c in $contNum; do
-	printf "${lightGreen}Working on Controller: ${c} ${colorReset}"
+	printf "Working on Controller: ${c}"
 	printf "\n"
 	for f in ${contFilenames[*]}; do
 		printf "Updating file ${f}."
-		ssh -n -q node-$c grep -i 35357 $f
+		ssh -n -q node-$c sed -i -e 's/$oldAdmin/$newAdmin/g' $f
+#		ssh -n -q node-$c grep -i 35357 $f
 		printf "\n"
 
 	done
@@ -49,12 +50,11 @@ for h in $compNum; do
 	printf "\n"
 	for f in ${compFilenames[*]}; do
 		printf "Updating file ${f}."
-		ssh -n -q node-$c grep -i 35357 $f
+		ssh -n -q node-$c sed -i -e 's/$oldAdmin/$newAdmin/g' $f
+#		ssh -n -q node-$c grep -i 35357 $f
 		printf "\n"
 	done
 done
 #for c in $conNum; do
 #    ssh -n node-$c sed -i -e 's/$oldAdmin/$newAdmin/g' $filename
 #done
-lightGreen='\033[1;32m'
-colorReset='\033[0m'
