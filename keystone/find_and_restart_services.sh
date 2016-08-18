@@ -30,7 +30,7 @@ compFilenames=(
 for c in $contNum; do
 	printf "Checking on Controller: ${c}\n"
 	for f in ${contFilenames[*]}; do
-		serviceNames+=$(ssh -n -q root@node-$c "ps aux | grep -i " $f| grep -i bin | awk '{print $12}')
+		serviceNames+=$(ssh -n -q root@node-$c "ps aux | grep -i " $f| grep -i '/usr/bin' | awk '{print $12}')
 	done
 done	
 
