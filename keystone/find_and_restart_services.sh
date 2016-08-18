@@ -35,7 +35,7 @@ for c in $contNum; do
 done	
 
 
-for s in $serviceNames| sort -u; do
+for s in `$serviceNames| sort -u`; do
 	printf $s
 	printf "\n"
 done
