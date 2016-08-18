@@ -34,12 +34,13 @@ compFilenames=(
 	)
 
 for c in $contNum; do
-	printf "Working on Controller: ${c}"
+	printf ${lightGreen}"Working on Controller: ${c}"${reset}
 	printf "\n"
 	for f in ${contFilenames[*]}; do
 		printf "Updating file ${f}."
 		ssh -n -q node-$c grep -i 35357 $f
 		printf "\n"
+
 	done
 done
 
@@ -56,3 +57,5 @@ done
 #    ssh -n node-$c sed -i -e 's/$oldAdmin/$newAdmin/g' $filename
 #done
 
+## QoL improvements
+lightGreen = '\033[0;32m'
