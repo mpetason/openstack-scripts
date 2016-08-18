@@ -4,6 +4,8 @@
 #
 #
 
+## Setup Service Names Array
+serviceNames=()
 
 ## This searches for the ID's of controller nodes.
 contNum=$(fuel node 2>/dev/null| grep cont | awk '{print $1}'| sort)
@@ -28,24 +30,10 @@ compFilenames=(
 for c in $contNum; do
 	printf "Checking on Controller: ${c}\n"
 	for f in ${contFilenames[*]}; do
-		ssh -n -q root@node-$c "ps aux | grep -i " $f| awk '{print $12}'
+		serviceNames+=$(ssh -n -q root@node-$c "ps aux | grep -i " $f| grep -i bin | awk '{print $12}')
 	done
 done	
-#for c in $contNum; do
-#	printf "Working on Controller: ${c}\n"
-#	for f in ${contFilenames[*]}; do
-#		printf "Updating file ${f}.\n"
-#		ssh -n -q root@node-$c $sedCommand $f
-#		printf "\n"
-#
-#	done
-#done
 
-#for h in $compNum; do
-#	printf "Working on Compute: ${h}\n"
-#	for f in ${compFilenames[*]}; do
-#		printf "Updating file ${f}.\n"
-#		ssh -n -q root@node-$c $sedCommand $f
-#		printf "\n"
-#	done
-#done
+for s in $serviceNames; do
+	printf $s
+done
