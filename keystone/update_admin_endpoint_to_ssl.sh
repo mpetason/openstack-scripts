@@ -22,7 +22,9 @@ fieldNumber=1
 ## Here we pull the values based on the field. If the field 
 ## is equal to 1 then we'll have a list of IDs, if it is 
 ## field 10 we'll receive a list of IPs.
-conNum=$(fuel node |grep cont | awk '{print $fieldNumber}')
+contNum=$(fuel node |grep cont | awk '{print $fieldNumber}')
+
+compNum=$(fuel node|grep comp | awk '{print $fieldNumber}')
 
 ## List of filenames we need to edit on a Controller node
 ## after making the updates to Keystone.
@@ -34,7 +36,13 @@ fileNames(
 	)
 
 
+for c in $contNum; do
+	echo $c
+done
 
+for c in $compNum; do
+	echo $c
+done
 #for c in $conNum; do
 #    ssh -n node-$c sed -i -e 's/$oldAdmin/$newAdmin/g' $filename
 #done
