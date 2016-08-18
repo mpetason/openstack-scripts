@@ -47,6 +47,7 @@ for h in $compNum; do
 	for f in ${fileNames[*]}; do
 		ssh -n -q node-$c grep -i 35357 $f
 	done
+done
 #for c in $conNum; do
 #    ssh -n node-$c sed -i -e 's/$oldAdmin/$newAdmin/g' $filename
 #done
