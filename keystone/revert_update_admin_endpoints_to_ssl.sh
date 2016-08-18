@@ -13,7 +13,7 @@ oldAdmin=http://10.109.1.2:35357
 ## to keep :35357 as it is the admin port.
 newAdmin=https://public.fuel.local:35357
 
-## Create Sed command
+## Builds the Sed command
 sedCommand="sed -i \"s|${newAdmin}|${oldAdmin}|g\""
 
 ## This searches for the ID's of controller nodes.
@@ -41,7 +41,6 @@ for c in $contNum; do
 	for f in ${contFilenames[*]}; do
 		printf "Updating file ${f}.\n"
 		ssh -n -q root@node-$c $sedCommand $f
-#		echo $sedCommand $f |ssh -n -q root@node-$c bash
 		printf "\n"
 
 	done
@@ -52,7 +51,6 @@ for h in $compNum; do
 	for f in ${compFilenames[*]}; do
 		printf "Updating file ${f}.\n"
 		ssh -n -q root@node-$c $sedCommand $f
-#		echo $sedCommand $f |ssh -n -q root@node-$c bash
 		printf "\n"
 	done
 done
