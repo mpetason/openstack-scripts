@@ -6,12 +6,12 @@
 
 ## Replace the oldAdmin endpoint with the current value
 ## of your admin endpoint in keystone. 
-oldAdmin=http://10.109.1.2:35357
+oldAdmin=10.109.1.2:35357
 
 ## Replace the newAdmin endpoint with https + the hostname 
 ## of your current public endpoint in keystone. Remember
 ## to keep :35357 as it is the admin port.
-newAdmin=http://public.fuel.local:35357
+newAdmin=public.fuel.local:35357
 
 ## Builds the Sed command
 sedCommand="sed -i 's/${oldAdmin}/${newAdmin}/g'"
