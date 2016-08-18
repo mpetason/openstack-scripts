@@ -34,9 +34,8 @@ for c in $contNum; do
 	done
 done	
 
-serviceNames=$(echo $serviceNames|sort|uniq)
 
-for s in $serviceNames; do
+for s in $serviceNames| sort -u; do
 	printf $s
 	printf "\n"
 done
