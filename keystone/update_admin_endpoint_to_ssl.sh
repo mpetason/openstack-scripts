@@ -41,7 +41,7 @@ for c in $contNum; do
 	printf "Working on Controller: ${c}\n"
 	for f in ${contFilenames[*]}; do
 		printf "Updating file ${f}.\n"
-		ssh -n -q node-$c $sedCommand $f"
+		ssh -n -q node-$c $sedCommand $f
 		printf "\n"
 
 	done
@@ -51,7 +51,7 @@ for h in $compNum; do
 	printf "Working on Compute: ${h}\n"
 	for f in ${compFilenames[*]}; do
 		printf "Updating file ${f}.\n"
-		ssh -n -q node-$c $sedCommand $f"
+		ssh -n -q node-$c $sedCommand $f
 		printf "\n"
 	done
 done
