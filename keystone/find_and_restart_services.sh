@@ -42,10 +42,10 @@ for c in $compNum; do
 	done
 done
 
-for s in $serviceNamesComp[*]; do
+for s in $serviceNamesComp; do
 	printf $s
 done
 
-for s in $serviceNamesCont[*]; do
+for s in $serviceNamesCont; do
 	printf $s
 done
