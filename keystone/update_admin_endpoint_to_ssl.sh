@@ -14,10 +14,10 @@ oldAdmin=http://10.109.1.2:35357
 newAdmin=http://public.fuel.local:35357
 
 ## This searches for the ID's of controller nodes.
-contNum=sort$(fuel node| grep cont | awk '{print $1}')
+contNum=sort $(fuel node| grep cont | awk '{print $1}')
 
 ## This searches for the ID's of compute nodes.
-compNum=sort$(fuel node| grep comp | awk '{print $1}')
+compNum=sort $(fuel node| grep comp | awk '{print $1}')
 
 ## List of filenames we need to edit on a Controller node
 ## after making the updates to Keystone.
