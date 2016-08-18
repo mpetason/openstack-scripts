@@ -1,5 +1,5 @@
 #!/bin/bash
-#
+# Created by Michael Petersen 2016
 #
 #
 #
