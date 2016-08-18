@@ -36,6 +36,6 @@ done
 
 restartServices=$(echo $servicesNames | xargs -n1 |sort -u | xargs)
 
-for r in restartServices: do
+for r in restartServices; do
 	printf $r
 done
