@@ -17,7 +17,7 @@ contNum=$(fuel node|grep cont | awk '{print $1}')
 
 ## List of filenames we need to edit on a Controller node
 ## after making the updates to Keystone.
-fileNames(
+fileNames=(
 	/etc/neutron/metadata_agent.ini 
 	/etc/neutron/api-paste.ini
 	/etc/neutron/neutron.conf
