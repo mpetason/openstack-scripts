@@ -17,10 +17,10 @@ newAdmin=https://public.fuel.local:35357
 sedCommand="sed -i \"s|${newAdmin}|${oldAdmin}|g\""
 
 ## This searches for the ID's of controller nodes.
-contNum=$(fuel node| grep cont | awk '{print $1}'| sort)
+contNum=$(fuel node 2>/dev/null| grep cont | awk '{print $1}'| sort)
 
 ## This searches for the ID's of compute nodes.
-compNum=$(fuel node| grep comp | awk '{print $1}'| sort)
+compNum=$(fuel node 2>/dev/null| grep comp | awk '{print $1}'| sort)
 
 ## List of filenames we need to edit on a Controller node
 ## after making the updates to Keystone.
