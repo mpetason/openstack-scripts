@@ -28,7 +28,7 @@ fileNames=(
 for c in $contNum; do
 	printf "Working on Controler: ${c}"
 	for f in ${fileNames[*]}; do
-		ssh -n node-$c grep -i 35357 $f
+		ssh -n -q node-$c grep -i 35357 $f
 	done
 done
 
