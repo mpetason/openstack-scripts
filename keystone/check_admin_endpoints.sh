@@ -43,22 +43,22 @@ for c in $contNum; do
 	done
 done
 
-## Tests for the New Admin value in files on Controllers. 
-for n in $contNum; do 
-	printf "Working on Controller: ${c}\n"
-	for f in ${contFilenames[*]}; do
-		printf "[NEW]Searching for ${newAdmin} in ${f}.\n"
-		ssh -n -q node-$c grep -i $newAdmin $f
-		printf "\n"
-	done
-done
-
 ## Tests for the Old Admin in files on the Computes.
 for h in $compNum; do
 	printf "Working on Compute: ${h}\n"
 	for f in ${compFilenames[*]}; do
 		printf "[OLD]Searching for ${oldAdmin} in ${f}.\n"
 		ssh -n -q node-$c grep -i $oldAdmin $f
+		printf "\n"
+	done
+done
+
+## Tests for the New Admin value in files on Controllers. 
+for n in $contNum; do 
+	printf "Working on Controller: ${c}\n"
+	for f in ${contFilenames[*]}; do
+		printf "[NEW]Searching for ${newAdmin} in ${f}.\n"
+		ssh -n -q node-$c grep -i $newAdmin $f
 		printf "\n"
 	done
 done
