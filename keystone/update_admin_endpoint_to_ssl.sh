@@ -26,12 +26,10 @@ fileNames=(
 
 
 for c in $contNum; do
-	printf $c
+	for f in ${fileNames[*]}; do
+		ssh -n node-$c grep -i 35357 $f
+	done
 done
-
-for f in ${fileNames[*]}; do
-	printf $f
-done	
 
 #for c in $conNum; do
 #    ssh -n node-$c sed -i -e 's/$oldAdmin/$newAdmin/g' $filename
