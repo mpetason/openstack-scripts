@@ -14,7 +14,7 @@ oldAdmin=http://10.109.1.2:35357
 newAdmin=https://public.fuel.local:35357
 
 ## Builds the Sed command
-sedCommand=sed 's|${oldAdmin}|${newAdmin}|g'
+sedCommand="sed 's|${oldAdmin}|${newAdmin}|g'"
 
 ## This searches for the ID's of controller nodes.
 contNum=$(fuel node| grep cont | awk '{print $1}'| sort)
@@ -40,7 +40,7 @@ for c in $contNum; do
 	printf "Working on Controller: ${c}\n"
 	for f in ${contFilenames[*]}; do
 		printf "Updating file ${f}.\n"
-		ssh -n -q node-$c $sedCommand $f
+		echo $sedCommand $f |ssh -n -q root@node-$c bash
 		printf "\n"
 
 	done
