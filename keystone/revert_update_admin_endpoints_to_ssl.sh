@@ -14,7 +14,7 @@ oldAdmin=http://10.109.1.2:35357
 newAdmin=https://public.fuel.local:35357
 
 ## Create Sed command
-sedCommand=sed 's|${newAdmin}|${oldAdmin}|g'
+sedCommand="sed 's|${newAdmin}|${oldAdmin}|g'"
 
 ## This searches for the ID's of controller nodes.
 contNum=$(fuel node| grep cont | awk '{print $1}'| sort)
