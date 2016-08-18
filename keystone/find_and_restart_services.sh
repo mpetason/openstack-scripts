@@ -46,14 +46,12 @@ printf "\n"
 printf "Services on the Controller Nodes\n"
 
 for s in $serviceNamesCont; do
-	printf $s
-	printf "\n"
+	echo $s
 done | sort -u
 
 printf "\n"
 printf "Services on the Compute Nodes\n"
 
 for s in $serviceNamesComp; do
-	printf $s
-	printf "\n"
+	echo $s
 done | sort -u
