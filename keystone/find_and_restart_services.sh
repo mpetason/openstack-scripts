@@ -28,7 +28,7 @@ compFilenames=(
 for c in $contNum; do
 	printf "Checking on Controller: ${c}\n"
 	for f in ${contFilenames[*]}; do
-		ssh -n -q root@node-$c "ps aux | grep -i " $f
+		ssh -n -q root@node-$c "ps aux | grep -i " $f| awk '{print $12}'
 	done
 done	
 #for c in $contNum; do
