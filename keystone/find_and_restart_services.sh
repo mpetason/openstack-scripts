@@ -34,6 +34,8 @@ for c in $contNum; do
 	done
 done	
 
-for s in $serviceNames; do
-	printf $s
+restartServices=$(sort -u $serviceNames)
+
+for r in $restartServices; do
+	print $r
 done
