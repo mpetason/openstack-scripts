@@ -44,8 +44,10 @@ done
 
 for s in $serviceNamesComp; do
 	printf $s
+	printf "\n"
 done
 
 for s in $serviceNamesCont; do
 	printf $s
+	printf "\n"
 done
