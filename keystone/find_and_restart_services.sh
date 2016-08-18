@@ -34,8 +34,7 @@ for c in $contNum; do
 	done
 done	
 
-restartServices=$(echo $servicesNames | xargs -n1 |sort -u | xargs)
-
-for r in $restartServices; do
-	printf $r
+for s in $serviceNames; do
+	printf $s
+	printf "\n"
 done
