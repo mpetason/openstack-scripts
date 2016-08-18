@@ -34,13 +34,12 @@ compFilenames=(
 	)
 
 for c in $contNum; do
-	printf "Working on Controller: ${c}"
-	printf "\n"
+	printf "Working on Controller: ${c}\n"
 	for f in ${contFilenames[*]}; do
-		printf "Searching for ${oldAdmin} in ${f}."
+		printf "Searching for ${oldAdmin} in ${f}.\n"
 		ssh -n -q node-$c grep -i $oldAdmin $f
 		printf "\n"
-		printf "Searching for ${newAdmin} in ${f}."
+		printf "Searching for ${newAdmin} in ${f}.\n"
 		ssh -n -q node-$c grep -i $newAdmin $f
 		printf "\n"
 
@@ -48,17 +47,13 @@ for c in $contNum; do
 done
 
 for h in $compNum; do
-	printf "Working on Compute: ${h}"
-	printf "\n"
+	printf "Working on Compute: ${h}\n"
 	for f in ${compFilenames[*]}; do
-		printf "Searching for ${oldAdmin} in ${f}."
+		printf "Searching for ${oldAdmin} in ${f}.\n"
 		ssh -n -q node-$c grep -i ${oldAdmin} $f
 		printf "\n"
-		printf "Searching for ${newAdmin} in ${f}."
+		printf "Searching for ${newAdmin} in ${f}.\n"
 		ssh -n -q node-$c grep -i ${newAdmin} ${f}
 		printf "\n"
 	done
 done
-#for c in $conNum; do
-#    ssh -n node-$c sed -i -e 's/$oldAdmin/$newAdmin/g' $filename
-#done
