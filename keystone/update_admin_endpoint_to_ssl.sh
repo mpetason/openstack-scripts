@@ -17,17 +17,21 @@ contNum=$(fuel node|grep cont | awk '{print $1}')
 
 ## List of filenames we need to edit on a Controller node
 ## after making the updates to Keystone.
-#fileNames(
-#	'/etc/neutron/metadata_agent.ini' 
-#	'/etc/neutron/api-paste.ini'
-#	'/etc/neutron/neutron.conf'
-#	'/etc/nova/nova.conf'
-#	)
+fileNames(
+	/etc/neutron/metadata_agent.ini 
+	/etc/neutron/api-paste.ini
+	/etc/neutron/neutron.conf
+	/etc/nova/nova.conf
+	)
 
 
 for c in $contNum; do
-	echo $c
+	printf $c
 done
+
+for f in ${fileNames[*]}; do
+	printf $f
+done	
 
 #for c in $conNum; do
 #    ssh -n node-$c sed -i -e 's/$oldAdmin/$newAdmin/g' $filename
