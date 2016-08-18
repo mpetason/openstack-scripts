@@ -5,7 +5,8 @@
 #
 
 ## Setup Service Names Array
-serviceNames=()
+serviceNamesCont=()
+serviceNamesComp=()
 
 ## This searches for the ID's of controller nodes.
 contNum=$(fuel node 2>/dev/null| grep cont | awk '{print $1}'| sort)
@@ -30,12 +31,21 @@ compFilenames=(
 for c in $contNum; do
 	printf "Checking on Controller: ${c}\n"
 	for f in ${contFilenames[*]}; do
-		serviceNames+=$(ssh -n -q root@node-$c "ps aux | grep -i " $f| grep -i '/usr/bin' | awk '{print $12}')
-	done
+		serviceNamesCont+=$(ssh -n -q root@node-$c "ps aux | grep -i " $f| grep -i '/usr/bin' | awk '{print $12}')
+	done | sort -u
 done	
 
+for c in $compNum; do
+	printf "Checking on Computes: ${c}\n"
+	for f in ${contFileNames[*]}; do 
+		serviceNamesComp+=$(ssh -n -q root@node-$c "ps aux | grep -i " $f| grep -i '/usr/bin' | awk '{print $12}')
+	done | sort -u
+done
 
-for s in $serviceNames; do
+for s in $serviceNamesComp; do
 	printf $s
-	printf "\n"
-done | sort -u
+done
+
+for s in $serviceNamesCont; do
+	printf $s
+done
