@@ -36,16 +36,20 @@ compFilenames=(
 for c in $contNum; do
 	printf "Working on Controller: ${c}"
 	printf "\n"
-	for f in ${fileNames[*]}; do
+	for f in ${contFilenames[*]}; do
+		printf "Updating file ${f}."
 		ssh -n -q node-$c grep -i 35357 $f
+		printf "\n"
 	done
 done
 
 for h in $compNum; do
 	printf "Working on Compute: ${h}"
 	printf "\n"
-	for f in ${fileNames[*]}; do
+	for f in ${compFilenames[*]}; do
+		printf "Updating file ${f}."
 		ssh -n -q node-$c grep -i 35357 $f
+		printf "\n"
 	done
 done
 #for c in $conNum; do
