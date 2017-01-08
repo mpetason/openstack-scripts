@@ -17,6 +17,6 @@ Update
 
 sh update_admin_endpoint_to_ssl.sh
 
-Rever
+Revert
 
 sh revert_update_admin_endpoints_to_ssl.sh
